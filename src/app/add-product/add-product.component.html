@@ -1,0 +1,35 @@
+<div class="card-title">Liste de Produit</div>
+<form #f="ngForm">
+  <div class="form-group">
+    <label>id:</label>
+    <input type="number" name="id" class="form-control" ngModel>
+  </div>
+  <div class="form-group">
+    <label>title:</label>
+    <input type="text" name="title" class="form-control" ngModel required #title="ngModel">
+    <div *ngIf="title.touched">
+      <div *ngIf="title.errors.required">required</div>
+  
+    </div>
+  
+    
+  </div>
+  <div class="form-group">
+    <label>price:</label>
+    <input type="number" name="price" class="form-control" ngModel required #price="ngModel">
+    <div *ngIf="price.touched"> required
+      <div *ngIf="price.value<0" >positive</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>quantity:</label>
+    <input type="number" name="quantity" class="form-control" ngModel #quantity="ngModel">
+      <div *ngIf="quantity.value<0" >positive</div>
+   
+  </div>
+
+
+  <button type="button" class="btn btn-success" (click)="addProduct(f.value)" >save</button>
+
+
+</form>

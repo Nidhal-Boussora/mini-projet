@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <input class="form-control" type="text" name="title" [(ngModel)]="Search"
+  placeholder="Enter title to search">
+
+
+</nav>
+<table  class="table table-striped">
+  <tr style="color: black; text-align: center; text-transform: uppercase; font-weight:bold;" >
+    <td >id</td>
+    <td >TITLE</td>
+    <td >PRICE</td>
+    <td >QUANTITY</td>
+    <td >ACTION</td>
+    
+
+  </tr>
+  <tr *ngFor="let product of products | filter:Search"  >
+
+    <td style="text-align: center" >{{product.id }}</td>
+    <td style="text-align: center">{{product.title }}</td>
+    <td style="text-align: center" >{{product.price}}</td>
+    <td style="text-align: center" >{{product.quantity}}</td>
+
+
+    <td style="text-align: center">
+      <button type="button" class="btn btn-success" [routerLink]="['/update/',product.id]">Update</button>
+      <button type="button" class="btn btn-danger" [routerLink]="['/del/',product.id]">Delete</button>
+
+    </td>
+
+  </tr>
+</table>
